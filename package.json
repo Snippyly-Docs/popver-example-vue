@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@veltdev/client": "^1.0.148",
+    "@veltdev/react": "^2.0.5",
     "vue": "^3.4.21"
   },
   "devDependencies": {

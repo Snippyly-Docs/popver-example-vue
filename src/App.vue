@@ -7,7 +7,7 @@ let client;
 
 const initializeVelt = async () => {
 	// Initialize the Velt client with your API key
-	client = await initVelt("oGbYp7xKvkPGcawWbGKJ");
+	client = await initVelt("hny91vx3KUxEIp61jBd1");
 }
 
 /**
@@ -19,10 +19,35 @@ const setDocumentId = () => {
 	}
 }
 
+const setLocations = () => {
+	if (client) {
+		const dashboard1Location = {
+			id: "dashboard1",
+			locationName: "Dashboard 1"
+		};
+		client.setLocation(dashboard1Location, true);
+		const dashboard2Location = {
+			id: "dashboard2",
+			locationName: "Dashboard 2"
+		};
+		client.setLocation(dashboard2Location, true);
+		const dashboard3Location = {
+			id: "dashboard3",
+			locationName: "Dashboard 3"
+		};
+		client.setLocation(dashboard3Location, true);
+		const dashboard4Location = {
+			id: "dashboard4",
+			locationName: "Dashboard 4"
+		};
+		client.setLocation(dashboard4Location, true);
+	}
+}
+
 /**
  * To identify the user for the Velt client
  */
-const identifyUser = () => {
+const identifyUser = async () => {
 	if (client) {
 		// Replace the user object with your user data
 		const user = {
@@ -31,7 +56,7 @@ const identifyUser = () => {
 			name: "Test User",
 			color: "#8b4bef",
 		};
-		client.identify(user);
+		await client.identify(user);
 	}
 }
 
@@ -76,8 +101,9 @@ const setCustomReactions = () => {
 onMounted(async () => {
 	// Call the initializeVelt function when the component is mounted
 	await initializeVelt();
+	await identifyUser();
 	setDocumentId();
-	identifyUser();
+	setLocations();
 	setCustomReactions();
 	handleSidebarCommentClick();
 });
@@ -99,9 +125,9 @@ onMounted(async () => {
 
 	<div class="support-page">
 
-		<div class="bubble-comment-container" id="dynamic-block">
+		<div class="bubble-comment-container" id="dynamic-block" data-velt-location='{ "id": "dashboard1", "locationName": "Dashboard 1" }'>
 			<div class="header">
-				<p>Reports run over time</p>
+				<p>Dashboard 1</p>
 				<div class="viewers-tools">
 					<velt-comment-bubble target-comment-element-id="dynamic-block"></velt-comment-bubble>
 					<velt-comment-tool target-comment-element-id="dynamic-block"></velt-comment-tool>
@@ -110,9 +136,9 @@ onMounted(async () => {
 			<div class="body"></div>
 		</div>
 
-		<div class="bubble-comment-container" id="dynamic-block-2">
+		<div class="bubble-comment-container" id="dynamic-block-2" data-velt-location='{ "id": "dashboard2", "locationName": "Dashboard 2" }'>
 			<div class="header">
-				<p>Reports run over time</p>
+				<p>Dashboard 2</p>
 				<div class="viewers-tools">
 					<velt-comment-bubble target-comment-element-id="dynamic-block-2"></velt-comment-bubble>
 					<velt-comment-tool target-comment-element-id="dynamic-block-2"></velt-comment-tool>
@@ -121,9 +147,9 @@ onMounted(async () => {
 			<div class="body"></div>
 		</div>
 
-		<div class="bubble-comment-container" id="dynamic-block-3">
+		<div class="bubble-comment-container" id="dynamic-block-3" data-velt-location='{ "id": "dashboard3", "locationName": "Dashboard 3" }'>
 			<div class="header">
-				<p>Reports run over time</p>
+				<p>Dashboard 3</p>
 				<div class="viewers-tools">
 					<velt-comment-bubble target-comment-element-id="dynamic-block-3"></velt-comment-bubble>
 					<velt-comment-tool target-comment-element-id="dynamic-block-3"></velt-comment-tool>
@@ -132,9 +158,9 @@ onMounted(async () => {
 			<div class="body"></div>
 		</div>
 
-		<div class="bubble-comment-container" id="dynamic-block-4">
+		<div class="bubble-comment-container" id="dynamic-block-4" data-velt-location='{ "id": "dashboard4", "locationName": "Dashboard 4" }'>
 			<div class="header">
-				<p>Reports run over time</p>
+				<p>Dashboard 4</p>
 				<div class="viewers-tools">
 					<velt-comment-bubble target-comment-element-id="dynamic-block-4"></velt-comment-bubble>
 					<velt-comment-tool target-comment-element-id="dynamic-block-4"></velt-comment-tool>
