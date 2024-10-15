@@ -15,7 +15,7 @@ const initializeVelt = async () => {
  */
 const setDocumentId = () => {
 	if (client) {
-		client.setDocumentId("pendo-velt-integration-customization");
+		client.setDocumentId("velt-popover-example");
 	}
 }
 
@@ -89,7 +89,7 @@ onMounted(async () => {
 	<velt-comments-sidebar shadow-dom="false"></velt-comments-sidebar>
 
 	<div class="recent-dashboard-viewers">
-		<h2>Pendo Velt Integration (customization)</h2>
+		<h2>Velt Integration (customization)</h2>
 		<div class="viewers-tools">
 			<velt-presence></velt-presence>
 			<velt-sidebar-button></velt-sidebar-button>
@@ -228,7 +228,7 @@ onMounted(async () => {
 			<velt-comment-dialog-composer-wireframe>
 				<div class="first-message">
 					<h3>Start a conversion</h3>
-					<p>Ask a question, give a feedback, or just say "Hi". Anyone who can access this page in Pendo can
+					<p>Ask a question, give a feedback, or just say "Hi". Anyone who can access this page in can
 						view and
 						adds comments here.
 					</p>
